@@ -14,12 +14,13 @@ import { useEffect, useState } from "react";
 
 import Image from "next/image";
 
+const appID = "cb548c557f2ea36378294da978e5fbab";
 
 async function FetchData(value:string) {
-  const defaultEndpoint=`http://api.openweathermap.org/geo/1.0/direct?q=${value}&appid=cb548c557f2ea36378294da978e5fbab`;
+  const defaultEndpoint=`http://api.openweathermap.org/geo/1.0/direct?q=${value}&appid=${appID}`;
   const locationRes = await fetch(defaultEndpoint);
   const locationData = await locationRes.json();
-  const weatherEndpoint = `https://api.openweathermap.org/data/2.5/weather?lat=${locationData[0].lat}&lon=${locationData[0].lon}&appid=cb548c557f2ea36378294da978e5fbab`
+  const weatherEndpoint = `https://api.openweathermap.org/data/2.5/weather?lat=${locationData[0].lat}&lon=${locationData[0].lon}&appid=${appID}`
   const weatherRes = await fetch(weatherEndpoint);
   const weatherData = await weatherRes.json();
 
