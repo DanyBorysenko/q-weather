@@ -1,0 +1,44 @@
+{
+    "coord": {
+      "lon": 30.3,
+      "lat": 50.4
+    },
+    "weather": [
+      {
+        "id": 801,
+        "main": "Clouds",
+        "description": "few clouds",
+        "icon": "02n"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 288.52,
+      "feels_like": 287.68,
+      "temp_min": 288.52,
+      "temp_max": 288.52,
+      "pressure": 1018,
+      "humidity": 60,
+      "sea_level": 1018,
+      "grnd_level": 998
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 5.15,
+      "deg": 14,
+      "gust": 11.26
+    },
+    "clouds": {
+      "all": 14
+    },
+    "dt": 1685216795,
+    "sys": {
+      "country": "UA",
+      "sunrise": 1685152659,
+      "sunset": 1685210069
+    },
+    "timezone": 10800,
+    "id": 697418,
+    "name": "Petropavlivs’ka Borshchahivka",
+    "cod": 200
+  }
