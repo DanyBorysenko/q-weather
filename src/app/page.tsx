@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 
 import Image from "next/image";
 
-const appID = "";
+const appID = "cb548c557f2ea36378294da978e5fbab";
 
 async function FetchData(value:string) {
   const defaultEndpoint=`http://api.openweathermap.org/geo/1.0/direct?q=${value}&appid=${appID}`;
