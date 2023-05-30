@@ -14,6 +14,9 @@ import { useEffect, useState } from "react";
 
 import Image from "next/image";
 
+import Badge from "@/components/gitHubBadge";
+
+
 const appID = "cb548c557f2ea36378294da978e5fbab";
 
 async function FetchData(value:string) {
@@ -47,7 +50,15 @@ export default function Home() {
 
   return (
         
-        <div className={`items-center justify-center bg-zinc-900 h-screen grid grid-rows-4 top-0`}>
+        <div>
+            <div className="bottom-0 left-3 grid grid-rows-2 absolute ">
+            <Badge user="DanyBorysenko" />
+            <Badge user="davidHarwardt" />
+
+            </div>
+            
+
+            <div className={`items-center justify-center  grid grid-rows-4 top-0`}>
           <SearchBar onSubmit={(value) => setLocation(value)}/>
           <div className="flex flex-row justify-center">
             <Image
@@ -66,11 +77,11 @@ export default function Home() {
                {[locationData ?  locationData[0].name.toString() : "Loading", 
                <div key = "Time" className="grid grid-rows-2">
                 <Clock currentTimeZoneOffset={currentTimeZoneOffset} timeZone={weatherData ? weatherData.timezone : 0} />
-                <p className="mt-3">{Today}</p>
+                <p className="mt-3 text-5xl font-bold text-white text">{Today}</p>
               </div>,
               <div key = "Weather" className="grid grid-rows-2">
-                <p>{weatherData ? (weatherData.main.temp - 273.5).toFixed(1) : "Loading"}°C</p>
-                <p className="mt-3">{weatherData ? weatherData.weather[0].main : "Loading"}</p>
+                  <p className="mt-3 text-5xl font-bold text-white text">{weatherData ? `${(weatherData.main.temp - 273.5).toFixed(1)}°C` : "Loading"}</p>
+                <p className="mt-3 text-5xl font-bold text-white text">{weatherData ? weatherData.weather[0].main : "Loading"}</p>
 
               </div> 
               ]}  
@@ -79,6 +90,11 @@ export default function Home() {
           <BlockOut>
               <FullDayBlockIn currentTimeZoneOffset={currentTimeZoneOffset} timeZone={weatherData ? weatherData.timezone: 0}/>             
           </BlockOut>
-          </div>                           
+          
+          </div> 
+
+          
+        </div>
+                                
   )
 }
