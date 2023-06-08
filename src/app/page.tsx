@@ -24,7 +24,7 @@ const weatherKey = process.env.NEXT_PUBLIC_WEATHER_KEY as string
 
 async function FetchData(value:string) {
   
-  console.log(weatherKey);
+
 
   const defaultEndpoint=`https://api.openweathermap.org/geo/1.0/direct?q=${value}&appid=${weatherKey}`;
   const locationRes = await fetch(defaultEndpoint);
