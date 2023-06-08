@@ -1,6 +1,8 @@
 "use client"
 
 
+import { useEffect, useState } from "react";
+
 import MainDataBlockIn from "../components/mainDataBlockIn";
 import BlockOut from "../components/blockOut"
 import Clock from "@/components/clock";
@@ -9,7 +11,7 @@ import FullDayBlockIn from "../components/weatherDataBlockIn"
 import weatherData from "../data/weather.json"
 import { debug } from "console";
 import SearchBar from "@/components/searchBar";
-import { useEffect, useState } from "react";
+
 
 
 import Image from "next/image";
@@ -17,13 +19,17 @@ import Image from "next/image";
 import Badge from "@/components/gitHubBadge";
 
 
-const appID = "cb548c557f2ea36378294da978e5fbab";
+const weatherKey = process.env.NEXT_PUBLIC_WEATHER_KEY as string
+
 
 async function FetchData(value:string) {
-  const defaultEndpoint=`https://api.openweathermap.org/geo/1.0/direct?q=${value}&appid=${appID}`;
+  
+  console.log(weatherKey);
+
+  const defaultEndpoint=`https://api.openweathermap.org/geo/1.0/direct?q=${value}&appid=${weatherKey}`;
   const locationRes = await fetch(defaultEndpoint);
   const locationData = await locationRes.json();
-  const weatherEndpoint = `https://api.openweathermap.org/data/2.5/weather?lat=${locationData[0].lat}&lon=${locationData[0].lon}&appid=${appID}`
+  const weatherEndpoint = `https://api.openweathermap.org/data/2.5/weather?lat=${locationData[0].lat}&lon=${locationData[0].lon}&appid=${weatherKey}`
   const weatherRes = await fetch(weatherEndpoint);
   const weatherData = await weatherRes.json();
 
@@ -31,6 +37,10 @@ async function FetchData(value:string) {
     [locationData, weatherData]
   )
 }
+
+
+
+
 
 
 export default function Home() {
